@@ -1,6 +1,8 @@
 
 # le-godaddy-dns
 
+Note: Please note that this is a custom fork of the original. I have added functionality to generate pfx files and to use godaddy's 'patch' api so that you don't get issues with wildcard certificate validation. I've also added logic to read configuration options from the dehydrated config file, although the solution is not ideal as it could possibly use a different file than dehydrated is using.
+
 [![Build Status](https://travis-ci.org/josteink/le-godaddy-dns.svg?branch=master)](https://travis-ci.org/josteink/le-godaddy-dns)
 
 le-godaddy-dns is a [Let's encrypt](https://letsencrypt.org/) module,
