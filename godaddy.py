@@ -163,24 +163,11 @@ def generate_pfx(args):
     return pfx_pem
 
 def loadDehydratedConfig():
-    # Find dehydrated config file
-    # . First check env variable
-    logger.info("\n\n!!! os.environ['DEHYDRATED_CONFIG]: {0}\n\n".format(os.environ['DEHYDRATED_CONFIG']))
-
-
-    dehyConfigPath=None
-    if "DEHYD_CONFIG" in os.environ:
-        dehyConfigPath=os.environ["DEHYD_CONFIG"]
-
-    else:
-        # . Next check cwd for file named config
-        cwd=os.getcwd()
-        dehyConfigPath=cwd + '/config'
-
-    logger.info("dehyConfigPath: {0}".format(dehyConfigPath))
+    
+    dehyConfigPath=os.environ["CONFIG"]
 
     if os.path.isfile(dehyConfigPath) is False:
-        logger.info(" + godaddy.py: dehydrated config not found or set correctly in DEHYD_CONFIG. Ignoring.")
+        logger.info(" + godaddy.py: dehydrated config not found in env var CONFIG. Ignoring.")
         return None
     else:
         config_string=None
