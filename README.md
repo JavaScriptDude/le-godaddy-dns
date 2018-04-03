@@ -19,8 +19,10 @@ dehydrated --register --accept-terms
 ````
 ### Set Global's from Godaddy Key and Secret
 ````
-export GD_KEY=your_key_here
-export GD_SECRET=your_secret_here
+export GD_KEY=_godaddy_api_key_
+export GD_SECRET=_godaddy_api_secret_
+# Required for PFX creation
+export PKCS_PASSWORD=_your_pfx_password_
 ````
 ### Settings to add to dehydrated config
 ````
@@ -36,8 +38,14 @@ gdpy_use_patch_api=yes
 
 ### Execute Dehydrated
 ````
+cd _PATH_WITH_dehydrated_config_
 dehydrated --challenge dns-01 -c --accept-terms
+
+# For unit testing, changes, run the following to clear data
+cd _PATH_WITH_dehydrated_config_
+rm -rf ./accounts; rm -rf ./certs; rm -rf ./chains
 ````
+
 
 ## TODO
 * Add tweak to dehydrated to pull in settings from command line such that will be set as if in config
