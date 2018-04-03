@@ -9,8 +9,8 @@ There is a side effect of using the patch api in which extra entries will be lef
 
 ## Features added to le-godaddy-dns
  * Read dehydrated config file to pull in settings (le-godaddy-dns has no provision for configurable settings)
- * Switch to using godaddy's 'patch' api so we can add multiple records needed for wildcard cert validation
- * PFX Creation for windows environments
+ * Switch to using godaddy's 'patch' api so we can add multiple records needed for wildcard cert validation (optional)
+ * PFX Creation for windows environments (optional)
 
 
 ## Usage
@@ -46,7 +46,6 @@ dehydrated --challenge dns-01 -c --accept-terms
 cd _PATH_WITH_dehydrated_config_
 rm -rf ./accounts; rm -rf ./certs; rm -rf ./chains
 ````
-
 
 ## TODO
 * Add tweak to dehydrated to pull in settings from command line such that will be set as if in config
