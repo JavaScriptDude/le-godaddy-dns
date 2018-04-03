@@ -57,7 +57,7 @@ rm -rf ./accounts; rm -rf ./certs; rm -rf ./chains
 ````
 curl -X PUT https://api.godaddy.com/v1/domains/${DOMAIN}/records/TXT -H "Authorization: sso-key ${GD_KEY}:${GD_SECRET}" -H "Content-Type: application/json" -d "[{\"name\": \"_acme-challenge.${DOMAIN}\", \"ttl\": 600, \"data\": \"VAL1\"}]"````
 ### Clean Challenge
-````
+
 curl -X PUT https://api.godaddy.com/v1/domains/${DOMAIN}/records/TXT -H "Authorization: sso-key ${GD_KEY}:${GD_SECRET}" -H "Content-Type: application/json" -d "[{\"name\": \"_acme-challenge.${DOMAIN}\", \"ttl\": 600, \"data\": \"--removed--\"}]"
 ````
 
