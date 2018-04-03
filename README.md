@@ -1,12 +1,14 @@
 
 # JSD's GoDaddy+Lets encrypt wildcard cert page (+ le-godaddy-dns & dehydrated)
 
-Note: Please note this code is a fork of le-godaddy-dns and contains my rough nodes on how to get wildcard certs using GoDaddy's DNS. For le-godaddy-dns notes, please see the original project's. They are a great read with excellent information. I will only cover my steps below.
+Please note this code is a fork of le-godaddy-dns and contains my rough nodes on how to get wildcard certs using GoDaddy's DNS. 
+
+Please start off by reading through the original le-godaddy-dns notes. They are a great read with excellent information. I will only cover my steps below.
 
 There is a side effect of using the patch api in which extra entries will be left in GoDaddy. This should not be a problem for GoDaddy and they can be cleaned up by hand later.
 
-## Features added:
- * Read dehydrated config file to pull in settings
+## Features added to le-godaddy-dns
+ * Read dehydrated config file to pull in settings (le-godaddy-dns has no provision for configurable settings)
  * Switch to using godaddy's 'patch' api so we can add multiple records needed for wildcard cert validation
 
 
