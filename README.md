@@ -12,14 +12,17 @@ There is a side effect of using the patch api in which extra entries will be lef
 
 ## Usage
 ### Register with lets encrypt
-````dehydrated --register --accept-terms
+````
+dehydrated --register --accept-terms
 ````
 ### Set Global's from Godaddy Key and Secret
-````export GD_KEY=your_key_here
+````
+export GD_KEY=your_key_here
 export GD_SECRET=your_secret_here
 ````
 ### Settings to add to dehydrated config
-````# Enable Hook chain setting
+````
+# Enable Hook chain setting
 HOOK_CHAIN="yes"
 # Define hook script
 HOOK=_path_to_godaddy.py_
@@ -30,7 +33,8 @@ gdpy_use_patch_api=yes
 ````
 
 ### Execute Dehydrated
-````dehydrated --challenge dns-01 -c --accept-terms
+````
+dehydrated --challenge dns-01 -c --accept-terms
 ````
 
 ## TODO
@@ -40,14 +44,21 @@ gdpy_use_patch_api=yes
 
 ## testing GoDaddy using curl
 ### Deploy Challenge
-````curl -X PUT https://api.godaddy.com/v1/domains/${DOMAIN}/records/TXT -H "Authorization: sso-key ${GD_KEY}:${GD_SECRET}" -H "Content-Type: application/json" -d "[{\"name\": \"_acme-challenge.${DOMAIN}\", \"ttl\": 600, \"data\": \"VAL1\"}]"````
+````
+curl -X PUT https://api.godaddy.com/v1/domains/${DOMAIN}/records/TXT -H "Authorization: sso-key ${GD_KEY}:${GD_SECRET}" -H "Content-Type: application/json" -d "[{\"name\": \"_acme-challenge.${DOMAIN}\", \"ttl\": 600, \"data\": \"VAL1\"}]"````
 ### Clean Challenge
-````curl -X PUT https://api.godaddy.com/v1/domains/${DOMAIN}/records/TXT -H "Authorization: sso-key ${GD_KEY}:${GD_SECRET}" -H "Content-Type: application/json" -d "[{\"name\": \"_acme-challenge.${DOMAIN}\", \"ttl\": 600, \"data\": \"--removed--\"}]"````
+````
+curl -X PUT https://api.godaddy.com/v1/domains/${DOMAIN}/records/TXT -H "Authorization: sso-key ${GD_KEY}:${GD_SECRET}" -H "Content-Type: application/json" -d "[{\"name\": \"_acme-challenge.${DOMAIN}\", \"ttl\": 600, \"data\": \"--removed--\"}]"
+````
 
 ## lexicon Notes
  * Lexicon is not usable for creating multiple keys. Ergo not suitible for wildcard registrations
 ### Lexicon calls
 #### Create Key
-````% lexicon ${PROVIDER} create ${DOMAIN} TXT --name="_acme-challenge.${DOMAIN}." --content="${TOKEN_VAL}" --auth-key ${GD_KEY} --auth-secret ${GD_SECRET}````
+````
+% lexicon ${PROVIDER} create ${DOMAIN} TXT --name="_acme-challenge.${DOMAIN}." --content="${TOKEN_VAL}" --auth-key ${GD_KEY} --auth-secret ${GD_SECRET}
+````
 #### Delete Key
-````% lexicon ${PROVIDER} delete ${DOMAIN} TXT --name="_acme-challenge.${DOMAIN}." --content="${TOKEN_VAL}" --auth-key ${GD_KEY} --auth-secret ${GD_SECRET}````
+````
+% lexicon ${PROVIDER} delete ${DOMAIN} TXT --name="_acme-challenge.${DOMAIN}." --content="${TOKEN_VAL}" --auth-key ${GD_KEY} --auth-secret ${GD_SECRET}
+````
