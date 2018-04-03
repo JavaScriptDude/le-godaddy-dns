@@ -10,6 +10,7 @@ There is a side effect of using the patch api in which extra entries will be lef
 ## Features added to le-godaddy-dns
  * Read dehydrated config file to pull in settings (le-godaddy-dns has no provision for configurable settings)
  * Switch to using godaddy's 'patch' api so we can add multiple records needed for wildcard cert validation
+ * PFX Creation for windows environments
 
 
 ## Usage
